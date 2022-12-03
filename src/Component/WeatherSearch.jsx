@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Col, Form,Card } from "react-bootstrap";
 import { format } from "date-fns";
 import { addSeconds } from "date-fns/esm";
 
@@ -31,8 +31,8 @@ const WeatherSearch = () => {
   },[weathers])
   const currentTime = addSeconds(new Date(), weathers.timezone - 3600);
   return (
-    <Container>
-     <Row>
+    <Container className="search-input">
+     <Row >
         <Col xs={10} mb={6} className="mx-auto my-3">
           <h1 className="search-name">Weather Search</h1>
         </Col>
@@ -48,28 +48,34 @@ const WeatherSearch = () => {
         </Col>
         </Row>
         {weathers&&weathers.main&&   
-        <Container className="displayweather">
-          <div className="top" xs={10} mb={6}>
-            <div className="location">
-              <p>{weathers.name},{weathers.sys.country}</p>
-            </div>
-            <div className="temp" xs={10} mb={6}>
-              <p>Temp:{weathers.main.temp.toFixed()}°C</p>
-              <p>L:{weathers.coord.lat.toFixed()}°C</p>
-            </div>
-            <div className="description">
-              {weathers.weather?<p>{weathers.weather[0].main}</p>:null}
-            </div>
-          </div>
-          <div className="center" xs={10} mb={6}>
+        <Container className="displayweather mt-3"> 
+     <Card  className='wearthdisplay-card mt-0'>
+      <div className="center" xs={10} mb={6}>
           <h3 className="text-white mt-4">
                 {format(currentTime, "h:mm aa")}
               </h3>
-              <h6 className="text-white">
+              <h6 className='bold'>
                 {format(new Date(), "do MMMM yyyy")}
               </h6>
+              <div>
+          <h4>
+          {weathers.name},{weathers.sys.country}
+            </h4></div>
+            <div>
           </div>
-          <div className="bottom" xs={10} mb={6}>
+          <div className="center-card">
+            Mostly {weathers.weather?<p>{weathers.weather[0].main}</p>:null}
+            </div>
+            <div className="temp d-flex">
+            Temp:{weathers.main.temp.toFixed()}°C
+          <span>L:{weathers.coord.lat.toFixed()}°C</span>
+            </div>
+            <div >
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" />
+            {weathers.weather?<p>{weathers.weather[0].icon.png}</p>:null}
+            </div>
+          </div>
+      <div className="bottom-card fix-bottom mb-0" xs={10} mb={6} >
             <div className="feels">
               <p className="bold">{weathers.main.feels_like}°C</p>
               <p>Feels like</p>
@@ -83,6 +89,7 @@ const WeatherSearch = () => {
               <p>Win Speed</p>
             </div>
           </div>
+    </Card>
         </Container>}
     </Container>
 

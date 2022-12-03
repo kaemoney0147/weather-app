@@ -1,7 +1,9 @@
-.app{
-  height: 100%;
-  background-image: url(https://cdn.pixabay.com/photo/2017/04/07/13/56/night-sky-2211032_1280.jpg);
-  background-size: contain;
+body{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgb(255, 255, 255)),
+  url(./assest/back2.avif);
+  background-position-y: 40%;
+  overflow: hidden;
+  object-fit: cover;
 }
 .navbar{
   color: white;
@@ -9,9 +11,6 @@
 }
 p{
   font-size: 1.6rem;
-}
-h1{
-  font-size: 6rem;
 }
 .displayweather{
 color: white;
@@ -31,31 +30,57 @@ top:10%;
   right: -90%;
   transform-origin: 0.0;
 }
-.bottom{
+.wearthdisplay-card{
+  color:white;
+  text-align: center;
+  background-color: lightslategrey;
+  border-radius: 10px;
+}
+.bottom-card {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
   text-align: center;
   margin: 1rem auto;
   border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.492);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.temp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
 }
 .bold{
   font-weight: 700;
 }
 .search-name{
-  color: white;
+  color: linen;
+  text-align: center;
 }
 .input{
-  border-radius: 50%;
+  border-radius: 30px;
+  background-color: gray;
+  width: 100%;
+  color: white;
 }
-.center{
+.search-input{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.center-card{
+  font-size: 1.4rem;
+}
+/* .center{
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
   margin-bottom: 250px;
-}
+} */
 /* .home{
   width: 100%;
   height: 100vh;
